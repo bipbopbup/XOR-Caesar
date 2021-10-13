@@ -27,6 +27,12 @@ ________/\\\\\\\\\____/\\\\\\\\\______/\\\________/\\\__/\\\\\\\\\\\\\____/\\\\\
     print(hello)
 
     print("This application can run the following commands: ")
+    print()
+    print("AAA to encrypt a file with XOR.")
+    print("BBB to decipher a XOR encrypted file.")
+    print("CCC to encrypt a file with Caesar.")
+    print("DDD to decipher a Caesar encrypted file.")
+    print("EEE to brute force a caesar encrypter file.")
     
 if __name__ == '__main__':
     hello()
