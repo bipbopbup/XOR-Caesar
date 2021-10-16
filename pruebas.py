@@ -1,18 +1,10 @@
-
-a = "SSSSS"
-
-if a.isupper():
-    print("true")
-else:
-    print("false")
-
 lista = ["a","B","c","D"]
 
 longitud = len(lista)
 
 print(longitud)
 
-for i in range(longitud):
+for i in range(len(lista)):
     c = lista[i]
     if c.isupper():
         print(c.swapcase())
