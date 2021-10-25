@@ -1,26 +1,30 @@
-print("Caesar cipher")
-textoOriginal = input("Introduce el texto que deseas cifrar: ")
-desplazamiento = int(input("Introduce la clave para cifrar el texto: "))
-salida = ""
+import typer
 
-for c in textoOriginal:
+app = typer.Typer()
 
-    if c.isalpha() :
+@app.command()
+def caesarCipher(text: str, key: int):
 
-        if c.isupper():
-            inicioAux = ord("A")
+    salida = ""
+
+    for c in text:
+
+        if c.isalpha() :
+
+            if c.isupper():
+                inicioAux = ord("A")
+            else :
+                inicioAux = ord("a")
+            
+            c_index = ord(c) - inicioAux
+            new_index = (c_index + key) % 26
+            new_unicode = new_index + inicioAux
+
+            new_character = chr(new_unicode)
+            
+            salida += new_character
+
         else :
-            inicioAux = ord("a")
-        
-        c_index = ord(c) - inicioAux
-        new_index = (c_index + desplazamiento) % 26
-        new_unicode = new_index + inicioAux
+            salida += c
 
-        new_character = chr(new_unicode)
-        
-        salida += new_character
-
-    else :
-        salida += c
-
-print("El texto cifrado es: " + salida)
+    print("El texto cifrado es: " + salida)
