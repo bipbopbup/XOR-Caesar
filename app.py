@@ -1,10 +1,12 @@
 import typer
 
 from CaesarCipher.cifrar import caesarCipher
+from CaesarCipher.descifrar import caesarDecipher
 
 app = typer.Typer()
 
 app.command()(caesarCipher)
+app.command()(caesarDecipher)
 
 def  hello():
     hello = '''
@@ -28,7 +30,8 @@ def  hello():
             _______\/////////__\///________\///________\///________\///____________________\///_____________\/////________\////////////____\///________\///__\///________\///__\///______________\///________\///________\///________
         '''
     print(hello)
-
+    print("")
+    """
     print("This application can run the following commands: ")
     print()
     print("AAA to encrypt a file with XOR.")
@@ -36,7 +39,8 @@ def  hello():
     print("CCC to encrypt a file with Caesar.")
     print("DDD to decipher a Caesar encrypted file.")
     print("EEE to brute force a caesar encrypter file.")
+    """
     
 if __name__ == '__main__':
     hello()
-    typer.run(caesarCipher)
+    app()

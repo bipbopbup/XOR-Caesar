@@ -4,6 +4,13 @@ app = typer.Typer()
 
 @app.command()
 def caesarCipher(text: str, key: int):
+    """
+    Ciphers a TEXT with an int KEY via caesarCipher. Execute as follows:
+    
+    python app.py TEXT KEY
+
+    For example: python app.py caesarcipher hello 4
+    """
 
     salida = ""
 
@@ -27,4 +34,4 @@ def caesarCipher(text: str, key: int):
         else :
             salida += c
 
-    print("El texto cifrado es: " + salida)
+    typer.echo("El texto cifrado es: " + salida)
