@@ -1,21 +1,26 @@
+print("Caesar Brute Force")
+textoOriginal = input("Introduce el texto que deseas cifrar: ")
+salida = ""
+for i in range(26):
 
+    for c in textoOriginal:
 
-#print("Ceasar Brute Force")
+        if c.isalpha() :
+            desplazamiento = i
+            if c.isupper():
+                inicioAux = ord("A")
+            else :
+                inicioAux = ord("a")
+        
+            c_index = ord(c) - inicioAux
+            new_index = (c_index - desplazamiento) % 26
+            new_unicode = new_index + inicioAux
+            new_character = chr(new_unicode)
+        
+            salida += new_character
 
+        else :
+            salida += c
 
-entrada = open ('textito.txt', 'r')
-salida = open ('salidita.txt','w')
-mensaje = entrada.read()
-
-
-abc = [a,b,c,d,e,f,g,h,i,j,k,l,m,n,ñ,o,p,q,r,s,t,u,v,w,x,y,z]
-ABC = [A,B,C,D,E,F,G,H,I,J,K,L,M,N,Ñ,O,P,Q,R,S,T,U,V,W,X,Y,Z]
-
-
-#mensaje_b = mensaje.swapcase
-#longitud = len(mensaje)
-#print(longitud)
-
-for i in mensaje:
-    print(i)
-    salida.write(i)
+    print("Llave "+ str(i) + " : " + salida)
+    salida = ""
