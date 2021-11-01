@@ -1,26 +1,39 @@
-print("Caesar Brute Force")
-textoOriginal = input("Introduce el texto que deseas cifrar: ")
-salida = ""
-for i in range(26):
+import typer
 
-    for c in textoOriginal:
+app = typer.Typer()
 
-        if c.isalpha() :
-            desplazamiento = i
-            if c.isupper():
-                inicioAux = ord("A")
-            else :
-                inicioAux = ord("a")
-        
-            c_index = ord(c) - inicioAux
-            new_index = (c_index - desplazamiento) % 26
-            new_unicode = new_index + inicioAux
-            new_character = chr(new_unicode)
-        
-            salida += new_character
+@app.command()
+def caesarBrute(text: str):
+    """
+    Given a TEXT ciphered via caesarCipher, returns every text deciphered with every key from 0 to 25. Execute as follows:
+    
+    python app.py TEXT
 
-        else :
-            salida += c
+    For example: python app.py caesarbrute hello
+    """
+    print("Caesar Brute Force")
 
-    print("Llave "+ str(i) + " : " + salida)
     salida = ""
+    for i in range(26):
+
+        for c in text:
+
+            if c.isalpha() :
+                desplazamiento = i
+                if c.isupper():
+                    inicioAux = ord("A")
+                else :
+                    inicioAux = ord("a")
+            
+                c_index = ord(c) - inicioAux
+                new_index = (c_index - desplazamiento) % 26
+                new_unicode = new_index + inicioAux
+                new_character = chr(new_unicode)
+            
+                salida += new_character
+
+            else :
+                salida += c
+
+        print("Llave "+ str(i) + " : " + salida)
+        salida = ""

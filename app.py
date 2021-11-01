@@ -2,11 +2,13 @@ import typer
 
 from CaesarCipher.cifrar import caesarCipher
 from CaesarCipher.descifrar import caesarDecipher
+from CaesarBruteForce.Ceasar_bruto import caesarBrute
 
 app = typer.Typer()
 
 app.command()(caesarCipher)
 app.command()(caesarDecipher)
+app.command()(caesarBrute)
 
 def  hello():
     hello = '''
